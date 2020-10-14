@@ -63,7 +63,7 @@ Programme de la formation Deep Learning
 |13h00 | Algorithmes de machine learning - Evaluation et sélection de modèles |
 |14h15 | TP : Python pour data scientist - Partie 2 Modélisation |
 |15h00 | Pause|
-|15h15 | Algorithmes de machine learning - Forêts aléatoires & Kmeans Clustering|
+|15h15 | Algorithmes de machine learning - Forêts aléatoires |
 |16h00 | Algorithmes de machine learning - Kmeans Clustering |
 |16h45 | Questions / rappels|
 |17h00 | Fin de journée|
