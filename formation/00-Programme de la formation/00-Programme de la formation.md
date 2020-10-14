@@ -69,7 +69,7 @@ Programme de la formation Deep Learning
 |17h00 | Fin de journée|
 
 ---
-
+---
 <!-- *page_number: true -->
 
 |Jour 2 ||
