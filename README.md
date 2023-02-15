@@ -50,8 +50,7 @@ Les librairies python suivantes sont requises, certaines étant déjà incluses 
   * numpy
   * pandas
   * sklearn
-  * tensorflow
-  * keras
+  * tensorflow (nb: la librairie keras est aujourd'hui inclue dans tensorflow)
 
 ### Les Travaux Pratiques
 
