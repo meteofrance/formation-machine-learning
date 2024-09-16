@@ -105,18 +105,18 @@ def visualize_tree(estimator, X, y, boundaries=True,
         plot_boundaries(0, plt.xlim(), plt.ylim())
 
 
-def plot_tree_interactive(X, y):
+def plot_tree_interactive(X, y, depth):
     from sklearn.tree import DecisionTreeClassifier
 
-    def interactive_tree(depth=1):
+    def interactive_tree(depth=depth):
         clf = DecisionTreeClassifier(max_depth=depth, random_state=0)
         visualize_tree(clf, X, y)
+    interactive_tree(depth)
+    #from ipywidgets import interact
+    #return interact(interactive_tree, depth=(1, 5))
 
-    from ipywidgets import interact
-    return interact(interactive_tree, depth=(1, 5))
 
-
-def plot_kmeans_interactive(min_clusters=1, max_clusters=6):
+def plot_kmeans_interactive(min_clusters=1, max_clusters=6, frame_step=1):
     from ipywidgets import interact
     from sklearn.metrics.pairwise import euclidean_distances
     from sklearn.datasets import make_blobs
@@ -179,8 +179,7 @@ def plot_kmeans_interactive(min_clusters=1, max_clusters=6):
                          ha='right', va='top', size=14)
 
     
-    return interact(_kmeans_step, frame=(0, 50),
-                    n_clusters=list(range(2,6)))
+    return _kmeans_step(frame_step)
 
 
 def plot_image_components(x, coefficients=None, mean=0, components=None,
