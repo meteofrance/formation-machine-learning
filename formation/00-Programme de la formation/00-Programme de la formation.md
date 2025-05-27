@@ -4,7 +4,7 @@
  background-color: White ;
  font: 25px arial, sans-serif; 
  position: relative;
- background-image: url('./Images/logo.png');
+ background-image: url('../shared_images/logo.png');
  background-repeat: no-repeat, repeat;
  background-position: bottom 10px left 10px;
  }
@@ -38,7 +38,7 @@
 
 <!-- *page_number: true -->
 
-![Logo météo](./Images/logo2.PNG)
+![Logo météo](../shared_images/logo2.PNG)
 
 <br/>
 

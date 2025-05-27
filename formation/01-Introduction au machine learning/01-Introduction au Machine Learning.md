@@ -8,7 +8,7 @@ marp: true
  background-color: White ;
  font: 25px arial, sans-serif; 
  position: relative;
- background-image: url('./Images/logo.png');
+ background-image: url('../shared_images/logo.png');
  background-repeat: no-repeat, repeat;
  background-position: bottom 10px left 10px;
  }
@@ -41,7 +41,7 @@ marp: true
 
 <!-- *page_number: true -->
 
-![Logo météo](./Images/logo2.PNG)
+![Logo météo](../shared_images/logo2.PNG)
 
 <br/>
 
@@ -62,16 +62,16 @@ Grandes catégories d’algorithmes de machine learning
 
 <!-- -->
 
-![types apprentissages](./Images/02-intro_ML/types_apprentissages.PNG) 
+![types apprentissages](Images/intro_ML/types_apprentissages.PNG) 
 
 ---
 <!-- *page_number: true -->
 
-Classification / Régression
+Régression / Classification
 -
 <center>
   
-![Regression/Classification](./Images/02-intro_ML/Reg_Clas.PNG)
+![Regression/Classification](Images/intro_ML/Reg_Clas.PNG)
 
 
 
@@ -89,7 +89,7 @@ Classification / Régression
 <!-- -->
 
 <center>
-<img src="./Images/02-intro_ML/Types_de_learning.PNG" width="300", height=150>
+<img src="Images/intro_ML/Types_de_learning.PNG" width="300", height=150>
 
 </center>
 
@@ -142,7 +142,7 @@ La régression linéaire
 
 
 
-![regression lineaire](./Images/02-intro_ML/regression_lineaire.PNG)
+![regression lineaire](Images/intro_ML/regression_lineaire.PNG)
 
 
 
@@ -156,7 +156,7 @@ La régression linéaire
 #### ■ Comment définir la « meilleure » droite ?
 
 
-![image fonction de coût](./Images/02-intro_ML/fonction_cout.PNG)
+![image fonction de coût](Images/intro_ML/fonction_cout.PNG)
 
 #### ■ La « meilleure » droite est celle qui minimise la fonction de coût.
 
@@ -182,7 +182,7 @@ La régression linéaire
 
 <center>
 
-![Formule4](./Images/02-intro_ML/formule4.PNG)
+![Formule4](Images/intro_ML/formule4.PNG)
 
 </center>
 
@@ -198,7 +198,7 @@ m étant le nombre d’échantillons dans le jeu d’entraînement.
   
 ## Comment trouver le minimum de la fonction de coût ?
 
-<img src="./Images/02-intro_ML/descente_gradient.PNG" width="900">
+<img src="Images/intro_ML/descente_gradient.PNG" width="900">
 
 ---
 
@@ -208,7 +208,7 @@ m étant le nombre d’échantillons dans le jeu d’entraînement.
 
 #### ■ La descente de gradient
 
-![Image decente de gradient](./Images/02-intro_ML/convergence.PNG)
+![Image decente de gradient](Images/intro_ML/convergence.PNG)
 
 ---
   
@@ -220,7 +220,7 @@ m étant le nombre d’échantillons dans le jeu d’entraînement.
 
 <center>
   
-![formule1](./Images/02-intro_ML/formule3.PNG)
+![formule1](Images/intro_ML/formule3.PNG)
 
 </center>
 Avec h(x) = w0.x + w1 
@@ -229,7 +229,7 @@ Avec h(x) = w0.x + w1
 
 <center>
   
-![image learning rate](./Images/02-intro_ML/gradient.PNG)
+![image learning rate](Images/intro_ML/gradient.PNG)
 </center>
 
 ---
@@ -240,7 +240,7 @@ Avec h(x) = w0.x + w1
 
 #### ■ Répéter autant de fois que nécessaire :
 
-<img src="./Images/02-intro_ML/convergence2.PNG" width="600">
+<img src="Images/intro_ML/convergence2.PNG" width="600">
 
 #### ■ α est le coefficient d’apprentissage (learning rate)
 
@@ -262,7 +262,7 @@ Avec h(x) = w0.x + w1
 
 ## Influence du learning rate
 
-<img src="./Images/02-intro_ML/learning_rate.PNG" width="900">
+<img src="Images/intro_ML/learning_rate.PNG" width="900">
 
 ---
   
@@ -274,7 +274,7 @@ Avec h(x) = w0.x + w1
 
 <center>
 
-![image learning rate](./Images/02-intro_ML/gradient.PNG)
+![image learning rate](Images/intro_ML/gradient.PNG)
 
 </center>
 
@@ -297,7 +297,7 @@ Avec h(x) = w0.x + w1
 
 <center>
 
-<img src="./Images/02-intro_ML/formule1.PNG" height=120>
+<img src="Images/intro_ML/formule1.PNG" height=120>
 
 </center>
 
@@ -307,7 +307,7 @@ Avec h(x) = w0.x + w1
   
 pour i allant de 1 à m, répéter :
 
-<img src="./Images/02-intro_ML/formule2.PNG" height=120>
+<img src="Images/intro_ML/formule2.PNG" height=120>
 
 
 </center>
@@ -321,7 +321,7 @@ pour i allant de 1 à m, répéter :
 
 |Full batch gradient descent (FBGD)|Stochastic gradient descent (SGD)|
 |:---:|:---:|
-![Full batch/Sochastic](./Images/02-intro_ML/Full_batch_Stochastic.PNG)
+![Full batch/Sochastic](Images/intro_ML/Full_batch_Stochastic.PNG)
 
 ---
 
@@ -362,7 +362,7 @@ pour i allant de 1 à m, répéter :
 
 <center>
   
- ![une_epoch](./Images/02-intro_ML/epoch.PNG)
+ ![une_epoch](Images/intro_ML/epoch.PNG)
  
  </center>
 
@@ -403,13 +403,13 @@ pour i allant de 1 à m, répéter :
 ## Evaluer le modèle
 Première idée : choisir les hyper-paramètres qui fonctionnent le mieux sur le jeu d’entraînement
 
-![entraînement](./Images/02-intro_ML/entrainement.PNG)
+![entraînement](Images/intro_ML/entrainement.PNG)
 
 ##### Pas bon. Le modèle risque de ne pas être capable de généraliser.
 
 <center>
 
-<img src="./Images/02-intro_ML/overfitting.PNG" height=300>
+<img src="Images/intro_ML/overfitting.PNG" height=300>
 
 </center>
 
@@ -421,7 +421,7 @@ Première idée : choisir les hyper-paramètres qui fonctionnent le mieux sur le
 
 Deuxième idée : choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
 
-![entraînement test](./Images/02-intro_ML/entrainement_test.PNG)
+![entraînement test](Images/intro_ML/entrainement_test.PNG)
 
 ##### <center> Pas bon. Aucune garantie que l’algorithme fonctionnera bien sur de nouvelles données. </center> 
 
@@ -434,7 +434,7 @@ Deuxième idée : choisir les hyper-paramètres qui fonctionnent le mieux sur un
 
 Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de validation, puis une fois le modèle réglé, l’évaluer sur un jeu de test.
 
-![entraînement test_validation](./Images/02-intro_ML/entrainement_test_valid.PNG)
+![entraînement test_validation](Images/intro_ML/entrainement_test_valid.PNG)
 
 ##### <center> C’est mieux ! </center>
 
@@ -445,7 +445,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 ## Sous-apprentissage - Sur-apprentissage
 <center>
 
-<img src="./Images/02-intro_ML/sur_sous_apprentissage.PNG" height=270, width=800>
+<img src="Images/intro_ML/sur_sous_apprentissage.PNG" height=270, width=800>
 
 </center>
 
@@ -462,7 +462,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 <center>
 
-<img src="./Images/02-intro_ML/sur_sous_apprentissage2.PNG" width=850>
+<img src="Images/intro_ML/sur_sous_apprentissage2.PNG" width=850>
 
 </center>
 
@@ -520,7 +520,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 <!-- *page_number: true -->
 
-![Logo météo](./Images/logo2.PNG)
+![Logo météo](../shared_images/logo2.PNG)
 
 <br/>
 
@@ -537,7 +537,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 <center>
 
-![Part de Marché](./Images/03-python_data_science/language_sondages.PNG)
+![Part de Marché](Images/python_data_science/part_marché.PNG)
 
 </center>
 
@@ -547,7 +547,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Librairies Pythons 
 
-![librairies python](./Images/03-python_data_science/librairies.PNG)
+![librairies python](Images/python_data_science/librairies.PNG)
 
 ---
  
@@ -555,7 +555,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Lire des fichiers Excel : utilisation de la Librairie Pandas 
 
-![Excel](./Images/03-python_data_science/pandas.PNG)
+![Excel](Images/python_data_science/pandas.PNG)
 
 ---
   
@@ -563,7 +563,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Importer un fichier Excel avec Pandas
 
-![code d'importation](./Images/03-python_data_science/code_pandas.PNG)
+![code d'importation](Images/python_data_science/code_pandas.PNG)
 
 ---
   
@@ -571,7 +571,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Importer un fichier csv avec Pandas
 
-![importation csv](./Images/03-python_data_science/code_pandas2.PNG)
+![importation csv](Images/python_data_science/code_pandas2.PNG)
 
 *  Préparation du jeu de données (X,Y) pour le modèle
 
@@ -587,7 +587,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ##### Exemple de code sur le dataframe housing:
 
-![Housing.desribe output](./Images/03-python_data_science/code_pandas3.PNG)
+![Housing.desribe output](Images/python_data_science/code_pandas3.PNG)
 
 ---
   
@@ -595,7 +595,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Utilisation de Pandas pour vérifier les données
 
-![housing.hist](./Images/03-python_data_science/code_pandas4.PNG)
+![housing.hist](Images/python_data_science/code_pandas4.PNG)
 
 ---
   
@@ -603,7 +603,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Présentation de Sklearn
 
-![Sklearn](./Images/03-python_data_science/sklearn.PNG)
+![Sklearn](Images/python_data_science/sklearn.PNG)
 
 ---
   
@@ -613,7 +613,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 <center>
 
-![code_sklearn](./Images/03-python_data_science/sklearn_code.PNG)
+![code_sklearn](Images/python_data_science/sklearn_code.PNG)
 
 </center>
 
@@ -628,7 +628,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
  
  Exemple de code :
 
-![Code sklearn](./Images/03-python_data_science/sklearn_code1.PNG)
+![Code sklearn](Images/python_data_science/sklearn_code1.PNG)
 
 ---
   
@@ -638,7 +638,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
  ● Prédiction d’une classe et des probabilités pour chaque classe
 
-![sklearn](./Images/03-python_data_science/sklearn_code2.PNG) 
+![sklearn](Images/python_data_science/sklearn_code2.PNG) 
 
 ---
   
@@ -650,7 +650,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 <center>
 
-<img src="./Images/03-python_data_science/Etapes_Machine_Learning.PNG"  width=1000>
+<img src="Images/python_data_science/diagramme.PNG"  width=1000>
 
 
 </center>
