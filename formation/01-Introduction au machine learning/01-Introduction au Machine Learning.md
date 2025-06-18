@@ -95,17 +95,21 @@ Classification / Régression
 
 ##### ■ Apprentissage supervisé :
 
-* Nécessite un jeu d’entraînement X, y
-  * X : prédicteurs
-  * y : variable à prédire
+* Nécessite un jeu d’entraînement contenant des couples (X, y)
+  * X: prédicteurs
+  * y: variable à prédire
+
+* Application principale: la classification ou la regression
+
+* Exemples: corriger la température prévue par modèle de PNT, dire si de la neige est présente sur une image webcam
 
 ##### ■ Apprentissage non supervisé :
 
-* Nécessite un jeu d’entraînement X
+* Nécessite un jeu d’entraînement contenant uniquement des X
 
-* Application principale : le clustering
+* Application principale: le clustering
 
-* Exemple : classer des situations météo en groupes homogènes
+* Exemple: classer des situations météo en groupes homogènes
 
 ---
 
@@ -130,9 +134,9 @@ La régression linéaire
 
 * Un jeu d’entraînement X, y
 
-* X : la taille des maisons
+  * X : la superficie des maisons
 
-* y : le prix
+  * y : le prix de vente
 
 ---
   
@@ -170,9 +174,9 @@ La régression linéaire
 
 ## La fonction de coût
 
-#### ■ Soit x,y un échantillon du jeu d’entraînement
-*  x = taille de la maison
-*  y = prix de la maison
+#### ■ Soit x, y un échantillon du jeu d’entraînement
+*  x = superficie d'une maison
+*  y = prix d'une maison
 
 #### ■ Soit h(x) notre prédiction : h(x) = w<sub>0</sub>.x + w<sub>1</sub>
 
@@ -301,7 +305,7 @@ Avec h(x) = w0.x + w1
 
 </center>
 
-#### on itère sur les échantillons un par un :
+#### On itère sur les échantillons un par un :
 
 <center>
   
@@ -335,20 +339,20 @@ pour i allant de 1 à m, répéter :
 
 <!-- *page_number: true -->
 
-## Mini-batch
+## Taille de batch (batch size)
 
 
 #### ■ Full batch gradient descent : on calcule le gradient sur l’ensemble du jeu de données
-* Inconvénient : beaucoup trop long sur gros jeu de données
+* Inconvénient : demande le chargement de toutes les données en RAM ce qui est impossible pour les grands jeux de données.
 
 #### ■ SGD : on estime le gradient échantillon par échantillon
-* Inconvénient : lent et convergence plus chaotique
+* Inconvénient : lent et convergence plus chaotique.
 
 #### ■ Compromis : mini-batch gradient descent
 
-* On estime le gradient sur k échantillons à la fois (par exemple 32 échantillons)
+* On estime le gradient sur k échantillons à la fois (par exemple 32 échantillons).
 
-##### <center> C’est la méthode utilisée en pratique  </center>
+#### <center> En pratique, on essaie d'avoir le plus grand batch que la carte graphique peut acceuillir.</center>
 
 ---
   
@@ -392,7 +396,9 @@ pour i allant de 1 à m, répéter :
 
 ― Le learning rate
 
-― La taille des mini-batches
+― La taille des batches
+
+― Le nombre d'épochs
 
 #### ■ Comment choisir ces hyper-paramètres ?
 
@@ -401,11 +407,11 @@ pour i allant de 1 à m, répéter :
 <!-- *page_number: true -->
 
 ## Evaluer le modèle
-Première idée : choisir les hyper-paramètres qui fonctionnent le mieux sur le jeu d’entraînement
+**Première idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur le jeu d’entraînement
 
 ![entraînement](./Images/02-intro_ML/entrainement.PNG)
 
-##### Pas bon. Le modèle risque de ne pas être capable de généraliser.
+#### Pas bon. Le modèle risque de ne pas être capable de généraliser.
 
 <center>
 
@@ -419,7 +425,7 @@ Première idée : choisir les hyper-paramètres qui fonctionnent le mieux sur le
 
 ## Evaluer le modèle
 
-Deuxième idée : choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
+**Deuxième idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
 
 ![entraînement test](./Images/02-intro_ML/entrainement_test.PNG)
 
@@ -432,7 +438,7 @@ Deuxième idée : choisir les hyper-paramètres qui fonctionnent le mieux sur un
 ## Evaluer le modèle
 
 
-Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de validation, puis une fois le modèle réglé, l’évaluer sur un jeu de test.
+**Troisième idée:** entraîner sur le jeu d’entraînement, choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de validation, puis une fois le modèle réglé, l’évaluer sur un jeu de test.
 
 ![entraînement test_validation](./Images/02-intro_ML/entrainement_test_valid.PNG)
 
@@ -452,7 +458,7 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 |Sous-apprentissage|Bon modèle|Sur-apprentissage|
 |:---:|:---:|:---:|
-|modèle trop simple pour expliquer la variance||modèle qui colle trop au bruit du jeu de données |
+|Trop simple pour expliquer la variance| |Colle trop au bruit du jeu de données |
 
 ---
   
@@ -472,16 +478,15 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Combattre l’underfitting
 
-
-#### ■ Combattre l’underfitting
+#### ■ Combattre l’underfitting ("sous-apprentissage")
 
 ― Complexifier le modèle
 
- * Ex : modèle quadratique au lieu d’un modèle linéaire pour prédire le prix des maisons
+ * Exemple: modèle quadratique au lieu d’un modèle linéaire pour prédire le prix des maisons
 
  ―   Ajouter des prédicteurs
 
- * Ex : il existe d’autres paramètres que la taille qui influent sur le prix des maisons. Par exemple le nombre de chambres, la distance au centre-ville...
+ * Exemple: il existe d’autres paramètres que la superficie qui influent sur le prix des maisons. Par exemple la localisation, le nombre de chambres, la distance au centre-ville...
 
 ---
 
@@ -489,22 +494,22 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ### Combattre l’overfitting
 
-##### ■ Combattre l’overfitting
+##### ■ Combattre l’overfitting ("sur-apprentissage")
 ― Ajouter des données d’entraînement
 
- *  Deux exemples de maisons ne permettent pas de créer un modèle qui généralise bien
+ *  Il est préfererable d'avoir des situations météorologiques diverses (sur plusieurs années) plutot que sur une courte période (situations très corréllées)
 
-― Simplifier le modèle ou retirer des prédicteurs
+― Simplifier le modèle
 
- *  Eviter que le modèle parvienne à « apprendre par coeur » le jeu d’entraînement
-
-― Entraîner le modèle moins longtemps
-
- *  En français, l’overfitting se dit « surapprentissage ».  
+ *  Eviter que le modèle dispose de suffisement de poids pour « apprendre par coeur » le jeu d’entraînement.
 
 ― Limiter la capacité d’apprentissage du modèle
 
- * Il existe plusieurs méthodes dont la régularisation et le dropout.
+ * De nombreuses méthodes de régularisation permettent d'éviter le surapprentissage: *lasso, augmentation de données, early-stopping, dropout*.
+
+― Entraîner le modèle moins longtemps ()
+
+ *  Réduire le nombre d'épochs pour un réseau de neurones puisque le processus d'apprentissage est itératif
 
 ― Utiliser des ensembles
 
@@ -530,113 +535,30 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 
 ---
-
-<!-- *page_number: true -->
-
-## Part de marché chez les data scientists (2019)
-
-<center>
-
-![Part de Marché](./Images/03-python_data_science/language_sondages.PNG)
-
-</center>
-
----
-  
-<!-- *page_number: true -->
-
-## Librairies Pythons 
-
-![librairies python](./Images/03-python_data_science/librairies.PNG)
-
----
  
 <!-- *page_number: true -->
 
-## Lire des fichiers Excel : utilisation de la Librairie Pandas 
+## Utilisation de la Librairie Pandas 
 
-![Excel](./Images/03-python_data_science/pandas.PNG)
+#### Importer des fichiers (Excel, CSV) avec Pandas
 
----
-  
-<!-- *page_number: true -->
+#### Preparation d'un jeu de données
 
-## Importer un fichier Excel avec Pandas
-
-![code d'importation](./Images/03-python_data_science/code_pandas.PNG)
+*  Suppression des valeurs aberrantes / manquantes
 
 ---
   
 <!-- *page_number: true -->
 
-## Importer un fichier csv avec Pandas
+## Présentation de Scikit-Learn
 
-![importation csv](./Images/03-python_data_science/code_pandas2.PNG)
+### Séparer les données en jeux d'entraînement et de test
 
-*  Préparation du jeu de données (X,Y) pour le modèle
+### Réaliser une régression linéaire
 
----
-  
-<!-- *page_number: true -->
+### Réaliser une classification non supervisée
 
-## Utilisation de Pandas pour vérifier les données
-
-###### ● Les données contiennent-elles des valeurs aberrantes ? (ex : une température de 6000 degrés)
-
-###### ● Y a-t-il des valeurs manquantes ?
-
-##### Exemple de code sur le dataframe housing:
-
-![Housing.desribe output](./Images/03-python_data_science/code_pandas3.PNG)
-
----
-  
-<!-- *page_number: true -->
-
-## Utilisation de Pandas pour vérifier les données
-
-![housing.hist](./Images/03-python_data_science/code_pandas4.PNG)
-
----
-  
-<!-- *page_number: true -->
-
-## Présentation de Sklearn
-
-![Sklearn](./Images/03-python_data_science/sklearn.PNG)
-
----
-  
-<!-- *page_number: true -->
-
-## Séparer les données en jeux d'entraînement et de test
-
-<center>
-
-![code_sklearn](./Images/03-python_data_science/sklearn_code.PNG)
-
-</center>
-
----
-  
-<!-- *page_number: true -->
-
-## Utilisation de Sklearn pour une régression
-
- ● Utilise la méthode de descente de gradient pour trouver les bons paramètres
- ● Large collection de modèles statistiques disponibles (random forest, réseaux de neurones..)
- 
- Exemple de code :
-
-![Code sklearn](./Images/03-python_data_science/sklearn_code1.PNG)
-
----
-  
-<!-- *page_number: true -->
-
-## Utilisation de Sklearn pour une classification
-
- ● Prédiction d’une classe et des probabilités pour chaque classe
+* Prédiction d’une classe et des probabilités pour chaque classe
 
 ![sklearn](./Images/03-python_data_science/sklearn_code2.PNG) 
 
@@ -646,11 +568,5 @@ Troisième idée : entraîner sur le jeu d’entraînement, choisir les hyper-pa
 
 ## Un projet Machine Learning en Python
 
- ● Les grandes étapes et les librairies associées
+* Les grandes étapes et les librairies associées
 
-<center>
-
-<img src="./Images/03-python_data_science/Etapes_Machine_Learning.PNG"  width=1000>
-
-
-</center>
