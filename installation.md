@@ -1,28 +1,14 @@
 # Installation
 
-Les librairies suivantes sont nécessaires pour cette formation :
-* Python 3.6+
-* numpy
-* [matplotlib](https://matplotlib.org/users/installing.html)
-* [pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html)
-* [Jupyter notebook](https://jupyter.readthedocs.io/en/latest/install.html)
-* [scikit-learn](https://scikit-learn.org/stable/install.html)
-* [tensorflow](https://pypi.org/project/Keras/)
+## 1. Téléchargement du repo git de la formation
 
-Nous allons voir comment les installer.
+Clonez ce répertoire git:
 
-## 1. Installation de Python
-**Si vous n'avez pas déjà Python installé sur votre machine**, installez Anaconda en téléchargeant la version correspondant à votre OS et en suivant les instructions disponibles [ici](https://docs.anaconda.com/anaconda/install/).
+```bash
+git clone https://github.com/meteofrance/formation-machine-learning.git
+```
 
----
-
-## 2. Téléchargement du dossier de la formation
-
-Téléchargez ou clonez le répertoire git disponible [ici](https://git.meteo.fr/deep_learning/formation-machinelearning).
-
----
-
-Dans la suite des instructions, le terme ```terminal``` désigne :
+Dans la suite des instructions, le terme `terminal` désigne :
 
 * un **terminal classique** pour les utilisateurs de Linux ou MacOS.
 * un **Anaconda Powershell Prompt** pour les utilisateurs de Windows ayant installé Python avec Anaconda.
@@ -30,27 +16,46 @@ Dans la suite des instructions, le terme ```terminal``` désigne :
 
 ---
 
-## 3. **(Optionnel)** Utilisation d'un environnement virtuel Conda
+## 1. Préparation de l'environnement Python
 
-Si vous utilisez Python régulièrement, afin de préserver votre environnement et configuration de travail, vous pouvez **créer un environnement virtuel Python**. Ainsi les modifications faites lors de l'installation seront faites uniquement dans ce nouvel environnement. Voici la marche à suivre avec **Conda** :
+### Prérequis (au choix)
+- Disposer de **[conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)** ou **[micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)**.
 
-1. Pour créer un nouvel environnement : ouvrez un terminal et entrez ```conda create -n my_new_env_name python=3.7```
-2. Pour activer le nouvel environnement : ```conda activate my_new_env_name```
-3. Pour revenir à votre configuration habituelle quand vous avez fini de travailler sur la formation MLFLow : ```conda deactivate```
+- Disposer de **[docker](https://docs.docker.com/engine/install/)**.
+---
+
+### Micromamba
+
+Commencez par créer un environnement micromamba et y installer `python 3.10`:
+```bash
+micromamba create -n formation_ml
+micromamba activate formation_ml
+micromamba install python=3.10
+```
+
+Installez ensuite les librairies qui vont nous être utiles lors de la formation:
+```bash
+micromamba install -f requirements.txt
+```
+
+
+### Docker à Météo-France
+Après avoir cloné le *monorepo* du LabIA, il vous faut construire le conteneur de la formation. Pour cela, il faut vous placer à la racine du repo de la formation et lancer la commande suivante:
+
+```bash
+runai build
+```
 
 ---
 
+## 2. Vérification de l'installation
+
+### Micromamba
 
 
----
-## 4. Installation des librairies Python
+### Docker à Météo-France
 
-Dans un terminal, naviguez jusqu'au dossier de la formation. Installez les librairies avec la commande suivante : ```pip install -r requirements.txt```.
-
----
-
-## 5. Vérification de l'installation
-
-Ouvrez un terminal et naviguez jusqu'au dossier de la formation. Entrez ```jupyter notebook```. L'interface Jupyter doit s'ouvrir dans votre navigateur. Cliquez sur le notebook ```formation-machinelearning.ipynb```. Le notebook doit s'ouvrir dans un nouvel onglet. Exécutez la première cellule qui contient les instructions ```import```. Aucun message d'erreur ne doit apparaître.
-
-Si vous avez des messages d'erreur du type ```Import error : Could not import ...``` , revenez à l'étape 4. Si vous avez toujours des messages d'erreur ensuite, contactez [bruno.pradel@meteo.fr](bruno.pradel@meteo.fr).
+Lancez le serveur Juypter Notebook:
+```bash
+runai notebook
+```
