@@ -95,7 +95,7 @@ Classification / Régression
 
 ##### ■ Apprentissage supervisé :
 
-* Nécessite un jeu d’entraînement contenant des couples (X, y)
+* Nécessite un jeu d’entraînement X, y
   * X: prédicteurs
   * y: variable à prédire
 
@@ -396,7 +396,7 @@ pour i allant de 1 à m, répéter :
 
 ― Le learning rate
 
-― La taille des batches
+― La taille des batchs
 
 ― Le nombre d'épochs
 
