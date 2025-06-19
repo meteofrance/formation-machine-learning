@@ -18,46 +18,87 @@ La formation alterne cours et travaux pratiques. Elle est prévue pour être sui
   * Cours 00    - Programme de la formation
   * Cours 01    - Introduction au Machine Learning 
   * Cours - Notebook 02.1  - Manipulation et description des données  
-  * TP 01      - Python pour Data Scientists Partie 1 Données
+  * TP 01       - Python pour Data Scientists Partie 1 Données
   * Cours - Notebook 02.2  - Algorithmes de machine learning  
   * Cours - Notebook 02.3  - Evaluation et sélection de modèles 
-  * TP 01      - Python pour Data Scientists Partie 2 Modélisation
+  * TP 01       - Python pour Data Scientists Partie 2 Modélisation
   * Cours - Notebook 02.4.1  - Forêts d'arbre aléatoire
   * Cours - Notebook 02.4.2  - Clustering - Kmeans
   * TP 02       - Reconnaissance de chiffres manuscrits (modèles linéaires, random forest...)
   * Cours 02    - Introduction au Deep Learning - Vidéo : https://youtu.be/F3F75xnhG0M (contribuée par Lior Perez)
   * Cours 03    - La librairie Keras
   * TP 03       - Réseaux convolutionnels : reconnaissance de chiffres manuscrits avec Keras - Vidéo : https://youtu.be/p5HZ5YaCc04 (contribuée par Sirine Hdiji)
-  * Cours 04 - Réseaux récurrents
-  
+  * Cours 04    - Réseaux récurrents
+
+## Les Travaux Pratiques
+
+Dans le dossier de chaque TP, vous trouverez :
+
+  * Le TP lui-même, sous la forme d'un notebook Jupyter à compléter,
+  * La correction du TP.
+
 ## Format des fichiers
 
 Les planches des cours sont au format Markdown, afin d'être aisément modifiables. Une version pdf est également fournie. La version pdf est générée à partir du Markdown avec l'utilitaire Marp :
 
 https://yhatt.github.io/marp/
 
-## Comment faire les TP ?
+## Installation
 
-### Installation
+### 1. Téléchargement du repo git de la formation
 
-Les TP sont en Python 3, au format Jupyter Notebook. Pour plus d'informations sur l'installation et l'utilisation de Jupyter Notebook : https://jupyter.org/
+Clonez ce répertoire git:
 
-Pour l'installation de Python 3 et des librairies scientifiques, nous recommandons Anaconda. Sur ce lien, choisir Python 3.6:
-https://www.anaconda.com/download/
+```bash
+git clone https://github.com/meteofrance/formation-machine-learning.git
+```
 
-Les librairies python suivantes sont requises, certaines étant déjà incluses dans Anaconda :
+Dans la suite des instructions, le terme `terminal` désigne :
 
-  * numpy
-  * pandas
-  * sklearn
-  * tensorflow (nb: la librairie keras est aujourd'hui inclue dans tensorflow)
+* un **terminal classique** pour les utilisateurs de Linux ou MacOS.
+* un **Anaconda Powershell Prompt** pour les utilisateurs de Windows ayant installé Python avec Anaconda.
+* une **invite de commande 'cmd.exe'** pour les utilisateurs de Windows ayant installé Python d'une autre façon. Dans ce cas, il vous faudra peut-être modifier vos variables d'environnement pour indiquer à Windows les chemins vers Python et pip. 
 
-### Les Travaux Pratiques
 
-Dans le dossier de chaque TP, vous trouverez :
+### 1. Préparation de l'environnement Python
 
-  * Le TP lui-même, sous la forme d'un notebook Jupyter à compléter,
-  * La correction du TP.
+#### Prérequis (au choix)
+- Disposer de **[conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)** ou **[micromamba](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html)**.
+
+- Disposer de **[docker](https://docs.docker.com/engine/install/)**.
+
+#### Micromamba
+
+Commencez par créer un environnement micromamba et y installer `python 3.10`:
+```bash
+micromamba create -n formation_ml
+micromamba activate formation_ml
+micromamba install python=3.10
+```
+
+Installez ensuite les librairies qui vont nous être utiles lors de la formation:
+```bash
+micromamba install -f requirements.txt
+```
+
+#### Docker à Météo-France
+Après avoir cloné le *monorepo* du LabIA, il vous faut construire le conteneur de la formation. Pour cela, il faut vous placer à la racine du repo de la formation et lancer la commande suivante:
+
+```bash
+runai build
+```
+
+### 2. Vérification de l'installation
+
+#### Micromamba
+
+#### Docker à Météo-France
+
+Lancez le serveur Juypter Notebook:
+```bash
+runai notebook
+```
+
 
 ## Comment contribuer ?
 
@@ -69,14 +110,13 @@ Vous pouvez également soumettre des pull requests pour apporter des corrections
 
 ## Crédits
 
-Contributeurs ayant participé à la création de cette formation : Lior Perez, Simon Moisselin, Valentin Fouqueau, Bruno Pradel
+Contributeurs ayant participé à la création de cette formation : Lior Perez, Simon Moisselin, Valentin Fouqueau, Bruno Pradel, Oscar Dewasmes, Théo Tournier.
 
 Certains contenus ont été empruntés à d'autres formations. Merci à leurs auteurs :
 
   * Cours de Machine Learning de Stanford par Andrew NG, sur la plateforme Coursera
   * Cours de Deep Learning de Stanford University par Fei-Fei Li, Justin Johnson et Serena Yeung
   * Scikit-learn Tutorial par Jake VanderPlas
-
 
 Si vous trouvez des documents non crédités, ou si nous avons involontairement utilisé sans votre accord un contenu vous appartenant, veuillez nous contacter.
 
