@@ -1,5 +1,8 @@
 ---
 marp: true
+
+footer: 'Formation Permanente Météo-France | Introduction au Machine Learning'
+paginate: true
 ---
 
 <style>
@@ -37,9 +40,12 @@ marp: true
  color: Red
  }
  
-</style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
 
-<!-- *page_number: true -->
+</style>
 
 ![Logo météo](./Images/logo2.PNG)
 
@@ -53,82 +59,48 @@ Introduction : le Machine Learning
 
 ### Présentation partagée sous la licence Apache 2.0
 
+
 ---
-
-<!-- *page_number: true -->
-
 Grandes catégories d’algorithmes de machine learning 
--
+--
+![h:550px center](./Images/02-intro_ML/types_apprentissages.PNG)
 
-<!-- -->
-
-![types apprentissages](./Images/02-intro_ML/types_apprentissages.PNG) 
 
 ---
-<!-- *page_number: true -->
-
 Classification / Régression
 -
-<center>
-  
-![Regression/Classification](./Images/02-intro_ML/Reg_Clas.PNG)
-
+![h:350px center](./Images/02-intro_ML/Reg_Clas.PNG)
 
 
 |Régression   |Classification|
 |:---:|:---:|
 |Prédire une variable quantitative|Prédire une classe (qualitative, discrète)|
 
-</center>
 
 ---
-<!-- *page_number: true -->
-
 ## Apprentissage supervisé / non supervisé
 
-<!-- -->
-
-<center>
-<img src="./Images/02-intro_ML/Types_de_learning.PNG" width="300", height=150>
-
-</center>
-
-##### ■ Apprentissage supervisé :
-
-* Nécessite un jeu d’entraînement X, y
-  * X: prédicteurs
-  * y: variable à prédire
+##### ■ Apprentissage supervisé : Nécessite un jeu d’entraînement X (prédicteurs), y (prédictants, ie. variables que l'on veut prévoir)
 
 * Application principale: la classification ou la regression
 
 * Exemples: corriger la température prévue par modèle de PNT, dire si de la neige est présente sur une image webcam
 
-##### ■ Apprentissage non supervisé :
-
-* Nécessite un jeu d’entraînement contenant uniquement des X
+##### ■ Apprentissage non supervisé : Nécessite un jeu d’entraînement contenant uniquement des X
 
 * Application principale: le clustering
 
 * Exemple: classer des situations météo en groupes homogènes
 
+
 ---
-
-<!-- *page_number: true -->
-
-
-#### Une première méthode de Machine Learning : la régression linéaire
-
+## Une première méthode de Machine Learning:
+# La Régression Linéaire
 
 
 ---
-<!-- *page_number: true -->
-
-
-
 La régression linéaire
 --
-
-#### ■ Exemple : prévoir le prix de vente des maisons en fonction de leur taille
 
 #### ■ Méthode d’apprentissage supervisé :
 
@@ -138,139 +110,94 @@ La régression linéaire
 
   * y : le prix de vente
 
----
-  
-<!-- *page_number: true -->
-
-## Trouver la droite qui se rapproche le plus du nuage de points
-
-
-
-![regression lineaire](./Images/02-intro_ML/regression_lineaire.PNG)
-
+#### ■ Exemple : prévoir le prix de vente des maisons en fonction de leur superficie
 
 
 ---
+La régression linéaire: l'intuition
+--
+**Trouver la droite qui se rapproche le plus du nuage de points**
 
-  
-<!-- *page_number: true -->
+![h:500 center](./Images/02-intro_ML/regression_lineaire.PNG)
 
-## La régression linéaire : fonction de coût
 
+---
+La régression linéaire: l'intuition
+--
 #### ■ Comment définir la « meilleure » droite ?
 
-
-![image fonction de coût](./Images/02-intro_ML/fonction_cout.PNG)
+# **Définir une fonction de coût**
 
 #### ■ La « meilleure » droite est celle qui minimise la fonction de coût.
 
-
-
-
-
 ---
-
-<!-- *page_number: true -->
-
 ## La fonction de coût
 
-#### ■ Soit x, y un échantillon du jeu d’entraînement
-*  x = superficie d'une maison
-*  y = prix d'une maison
+#### ■ Soit $x$, $y$ un échantillon du jeu d’entraînement (superficie et prix d'une maison)
 
-#### ■ Soit h(x) notre prédiction : h(x) = w<sub>0</sub>.x + w<sub>1</sub>
+#### ■ Soit $h(x)$ notre prédiction : $h(x) = w_0.x + w_1$
 
+#### ■ Une fonction de coût possible: écart quadratique moyen entre les prédictions et la vérité terrain
 
-
-#### ■ Une fonction de coût possible :
-
-<center>
-
-![Formule4](./Images/02-intro_ML/formule4.PNG)
-
-</center>
-
-m étant le nombre d’échantillons dans le jeu d’entraînement.
-
-#### ■ C’est l’écart quadratique moyen entre les prédictions et la vérité terrain
+$$
+J = \frac{1}{2m} \times \sum_{i=1}^{m}(h(x_i)-y_i)^2
+$$
+$m$ étant le nombre d’échantillons dans le jeu d’entraînement.
 
 ---
+## La fonction de coût: **Trouver le minimum**
 
+![h:450px center](./Images/02-intro_ML/descente_gradient.PNG)
 
-  
-<!-- *page_number: true -->
-  
-## Comment trouver le minimum de la fonction de coût ?
-
-<img src="./Images/02-intro_ML/descente_gradient.PNG" width="900">
 
 ---
+## La fonction de coût: **La descente de gradient**
 
-<!-- *page_number: true -->
+![h:450px center](./Images/02-intro_ML/convergence.PNG)
 
-## Comment trouver le minimum de la fonction de coût ?
-
-#### ■ La descente de gradient
-
-![Image decente de gradient](./Images/02-intro_ML/convergence.PNG)
 
 ---
-  
-<!-- *page_number: true -->
-
-## Application à la régression linéaire Calcul du gradient
+## La fonction de coût: **Le calcul du gradient**
 
 #### ■ Application à la régression linéaire
 
-<center>
-  
-![formule1](./Images/02-intro_ML/formule3.PNG)
-
-</center>
-Avec h(x) = w0.x + w1 
+$$
+J = \frac{1}{2m} \times \sum_{i=1}^{m}(h(x_i)-y_i)^2
+$$
+Avec $h(x) = w_0.x + w_1$
 
 #### ■ Gradient :
+$$
+\frac{\partial J}{\partial w_0} = \frac{1}{m} \sum_{i=1}^{m}x_i.(h(x_i)-y_i)
+$$
+$$
+\frac{\partial J}{\partial w_1} = \frac{1}{m} \sum_{i=1}^{m}(h(x_i)-y_i)
+$$
 
-<center>
-  
-![image learning rate](./Images/02-intro_ML/gradient.PNG)
-</center>
 
 ---
-  
-<!-- *page_number: true -->
-
-## C’est parti, on dévale la pente
+## La fonction de coût: **Le calcul du gradient**
 
 #### ■ Répéter autant de fois que nécessaire :
 
-<img src="./Images/02-intro_ML/convergence2.PNG" width="600">
+![h:350px center](./Images/02-intro_ML/convergence2.PNG)
 
-#### ■ α est le coefficient d’apprentissage (learning rate)
+#### ■ $\alpha$ est le coefficient d’apprentissage (learning rate)
+
 
 ---
-  
-<!-- *page_number: true -->
-
-## La convergence en images
-
-<center>
+## La convergence en image
 
 <https://www.youtube.com/watch?v=1hGsKphwC-A> 
 
-</center>
 
 ---
-  
-<!-- *page_number: true -->
-
 ## Influence du learning rate
 
-<img src="./Images/02-intro_ML/learning_rate.PNG" width="900">
+![h:450px center](./Images/02-intro_ML/learning_rate.PNG)
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Et si le jeu de données est très gros ?
 
@@ -290,9 +217,6 @@ Avec h(x) = w0.x + w1
 ##### <center>PROBLEME...</center>
 
 ---
-  
-<!-- *page_number: true -->
-  
 ## La descente de gradient stochastique
 
 #### ■ La solution : la descente de gradient stochastique
@@ -301,7 +225,7 @@ Avec h(x) = w0.x + w1
 
 <center>
 
-<img src="./Images/02-intro_ML/formule1.PNG" height=120>
+![](./Images/02-intro_ML/formule1.PNG)
 
 </center>
 
@@ -317,8 +241,6 @@ pour i allant de 1 à m, répéter :
 </center>
 
 ---
-
-<!-- *page_number: true -->
   
 ## Illustration
 
@@ -329,15 +251,11 @@ pour i allant de 1 à m, répéter :
 
 ---
 
-<!-- *page_number: true -->
-
 ## Démo en images
 
  <https://www.youtube.com/watch?v=HvLJUsEc6dw>
 
 ---
-
-<!-- *page_number: true -->
 
 ## Taille de batch (batch size)
 
@@ -355,8 +273,7 @@ pour i allant de 1 à m, répéter :
 #### <center> En pratique, on essaie d'avoir le plus grand batch que la carte graphique peut acceuillir.</center>
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## La notion d’epoch
 
@@ -373,14 +290,12 @@ pour i allant de 1 à m, répéter :
 #### ■ Le nombre d’épochs est donc le nombre de passes effectuées sur le jeu d’entraînement lors de l’apprentissage.
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## <center>  Des questions sur la descente de gradient ? </center>
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Hyper-paramètres – comment « régler » un modèle de Machine Learning
 
@@ -403,8 +318,7 @@ pour i allant de 1 à m, répéter :
 #### ■ Comment choisir ces hyper-paramètres ?
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Evaluer le modèle
 **Première idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur le jeu d’entraînement
@@ -421,8 +335,6 @@ pour i allant de 1 à m, répéter :
 
 ---
 
-<!-- *page_number: true -->
-
 ## Evaluer le modèle
 
 **Deuxième idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
@@ -432,8 +344,6 @@ pour i allant de 1 à m, répéter :
 ##### <center> Pas bon. Aucune garantie que l’algorithme fonctionnera bien sur de nouvelles données. </center> 
 
 ---
-
-<!-- *page_number: true -->
 
 ## Evaluer le modèle
 
@@ -445,8 +355,7 @@ pour i allant de 1 à m, répéter :
 ##### <center> C’est mieux ! </center>
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Sous-apprentissage - Sur-apprentissage
 <center>
@@ -461,8 +370,7 @@ pour i allant de 1 à m, répéter :
 |Trop simple pour expliquer la variance| |Colle trop au bruit du jeu de données |
 
 ---
-  
-<!-- *page_number: true -->
+
   
 ## Sous-apprentissage - Sur-apprentissage
 
@@ -473,8 +381,7 @@ pour i allant de 1 à m, répéter :
 </center>
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Combattre l’underfitting
 
@@ -489,8 +396,6 @@ pour i allant de 1 à m, répéter :
  * Exemple: il existe d’autres paramètres que la superficie qui influent sur le prix des maisons. Par exemple la localisation, le nombre de chambres, la distance au centre-ville...
 
 ---
-
-<!-- *page_number: true -->
 
 ### Combattre l’overfitting
 
@@ -517,13 +422,9 @@ pour i allant de 1 à m, répéter :
 
 ---
 
-<!-- *page_number: true -->
-
 ## <center> Des questions? </center> 
 
 ---
-
-<!-- *page_number: true -->
 
 ![Logo météo](./Images/logo2.PNG)
 
@@ -535,8 +436,7 @@ pour i allant de 1 à m, répéter :
 
 
 ---
- 
-<!-- *page_number: true -->
+
 
 ## Utilisation de la Librairie Pandas 
 
@@ -547,8 +447,7 @@ pour i allant de 1 à m, répéter :
 *  Suppression des valeurs aberrantes / manquantes
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Présentation de Scikit-Learn
 
@@ -563,8 +462,7 @@ pour i allant de 1 à m, répéter :
 ![sklearn](./Images/03-python_data_science/sklearn_code2.PNG) 
 
 ---
-  
-<!-- *page_number: true -->
+
 
 ## Un projet Machine Learning en Python
 
