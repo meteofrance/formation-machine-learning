@@ -219,7 +219,7 @@ $$
 
 #### ■ A chaque étape de descente de gradient, au lieu de prendre l’ensemble des échantillons d’un coup comme ceci :
 
-![h:175px center](./Images/02-intro_ML/formule1.PNG)
+![h:180px center](./Images/02-intro_ML/formule1.PNG)
 
 #### ■ On itère sur les échantillons un par un :
 
@@ -295,7 +295,7 @@ pour i allant de 1 à m, répéter :
 
 ― Mais aussi : le learning rate, la taille des batchs, le nombre d'épochs ...
 
-#### ■ Comment choisir ces hyper-paramètres ?
+####  **Comment choisir ces hyper-paramètres ?**
 
 ---
 

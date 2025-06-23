@@ -67,8 +67,6 @@ Introduction au Deep Learning
 
 ---
 
-<!-- *page_number: true -->
-
 ## Un neurone
  
  
