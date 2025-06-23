@@ -1,41 +1,32 @@
+---
+marp: true
+
+footer: 'Formation Permanente Météo-France | Introduction au Machine Learning'
+paginate: true
+---
+
 <style>
-
-.slide {
- background-color: White ;
- font: 25px arial, sans-serif;
- position: relative;
- background-image: url('./Images/logo.png');
- background-repeat: no-repeat, repeat;
- background-position: bottom 10px left 10px;
- }
-
-.slide a {
- color: black;
- }
  
-.slide h1 {
- color: Black !important;
+ 
+h1 {
+ color: SteelBlue;
  } 
  
-.slide h2 {
+h2 {
  color: SteelBlue ; 
  } 
  
- .slide h3 {
- color: LightSkyBlue ; 
- }
+h3 {
+ color: Black ; 
+ } 
  
- .slide h4 { 
- color: Black; 
- }
- 
- .slide h5 {
- color: Red
- }
- 
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
 </style>
 
-<!-- *page_number: true -->
 
 ![Logo météo](./Images/logo2.PNG)
 
@@ -50,84 +41,66 @@ Introduction au Deep Learning
 
 ---
 
-<!-- *page_number: true -->
-
 # Le Deep Learning 
 
-![image Dl](./Images/04-intro_DL/DL.PNG)
+![h:500px image Dl center](./Images/04-intro_DL/DL.PNG)
 
 ---
 
-<!-- *page_number: true -->
-
 ## Un neurone
  
- <center>
  
-![image neurone](./Images/04-intro_DL/neurone.png) 
+![image neurone center](./Images/04-intro_DL/neurone.png) 
  
-</center>
 
 * *f* est la fonction d'activation
 * Question : quelle fonction *f* choisir pour retrouver le modèle linéaire ?
 
 ---
 
-<!-- *page_number: true -->
 
 ## Fonctions d'activation couramment utilisées
 
-<center>
 
-![Sigmoid/relu](./Images/04-intro_DL/sigmoid_relu.PNG)
-</center>
+![Sigmoid/relu center](./Images/04-intro_DL/sigmoid_relu.PNG)
 
 |Utilisation : à mettre en fin de réseau pour prédire une probabilité (entre 0 et 1) |Utilisation : entre chaque couche pour dé-linéariser (à coût de calcul faible)|
 |:---:|:---:|
 
 ---
 
-<!-- *page_number: true -->
 
 ## D'autres fonctions d'activation 
 
-![images fonctions](./Images/04-intro_DL/fonction_activation.PNG) 
+![images fonctions center](./Images/04-intro_DL/fonction_activation.PNG) 
 
 ---
 
-<!-- *page_number: true -->
 
 ## Les couches / layers 
 
-<center>
 
-![image layers](./Images/04-intro_DL/layers.PNG)
+![image layers center](./Images/04-intro_DL/layers.PNG)
 
-##### profondeur = 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; profondeur = 2 
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; profondeur = 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; profondeur = 2 
 
-</center>
 
 ---
-
-<!-- *page_number: true -->
 
 ## Intuition
 
 Un réseau de neurones peut approcher n'importe quelle fonction continue.
 
-![center 2_segments](./Images/04-intro_DL/approche_courbe_segments.png)
-<center>Couche cachée à 2 neurones &nbsp;&nbsp;&nbsp; Couche cachée à 4 neurones
-</center>
+![center 2_segments center](./Images/04-intro_DL/approche_courbe_segments.png)
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Couche cachée à 2 neurones &nbsp;&nbsp;&nbsp; Couche cachée à 4 neurones
 
 ---
-
-<!-- *page_number: true -->
 
 ## Classifier une image avec un réseau de neurones sans couche cachée
 
 + Objectif : classifier une image 32x32 en 10 classes
 
-![image Classif](./Images/04-intro_DL/classif.PNG)
+![image Classif center](./Images/04-intro_DL/classif.PNG)
 
 + Plus de 30 000 paramètres pour un petit réseau et une petite image 
 + Explose avec la résolution de l'image et la complexité du réseau
@@ -136,38 +109,27 @@ Un réseau de neurones peut approcher n'importe quelle fonction continue.
 
 # Réseaux de neurones convolutionnels
 
-<!-- *page_number: true -->
-
 
 ---
 
-<!-- *page_number: true -->
-
 ## Convolution sur une image 
 
-<center> 
   
-![image convolution](./Images/04-intro_DL/convolution2.PNG)
-
-</center>
+![image convolution center](./Images/04-intro_DL/convolution2.PNG)
 
 + Multiplication pixel par pixel (produit scalaire)
 
 ---
 
-<!-- *page_number: true -->
-
 ## Convolution sur une image 
 
-![image convolution générale](./Images/04-intro_DL/convolution.PNG)
+![h:250px image convolution générale center](./Images/04-intro_DL/convolution.PNG)
 
 - 1 filtre 5x5
 
 - Exemple en images : <http://setosa.io/ev/image-kernels/>
 
 --- 
-
-<!-- *page_number: true -->
 
 ## Autres types de couches 
 
@@ -178,25 +140,18 @@ Un réseau de neurones peut approcher n'importe quelle fonction continue.
 
 ---
 
-<!-- *page_number: true -->
-
 ## Max Pooling : Réduire la dimension
-
-![image Max-Pooling](./Images/04-intro_DL/maxpooling.PNG)
+![h:300px image Max-Pooling center](./Images/04-intro_DL/max_pooling.png)
+* Max pooling : filtre 2x2 et stride 2
 
 ---
 
-<!-- *page_number: true -->
 
 ## Dropout : supprimer aléatoirement des neurones 
 
-<center>
-
  Méthode de régularisation 
 
-![image dropout](./Images/04-intro_DL/dropout.PNG)
-
-</center>
+![image dropout center](./Images/04-intro_DL/dropout.PNG)
 
 ---
 
@@ -204,6 +159,6 @@ Un réseau de neurones peut approcher n'importe quelle fonction continue.
 
 ## Exemple de réseau convolutionnel complet 
 
-![Réseau complet](./Images/04-intro_DL/réseau_complet.PNG)
+![Réseau complet center](./Images/04-intro_DL/réseau_complet.PNG)
 
 
