@@ -7,38 +7,18 @@ paginate: true
 
 <style>
  
-.slide {
- background-color: White ;
- font: 25px arial, sans-serif; 
- position: relative;
- background-image: url('./Images/logo.png');
- background-repeat: no-repeat, repeat;
- background-position: bottom 10px left 10px;
- }
-
-.slide a {
- color: black;
- }
  
-.slide h1 {
- color: Black !important;
+h1 {
+ color: SteelBlue;
  } 
  
-.slide h2 {
+h2 {
  color: SteelBlue ; 
  } 
  
- .slide h3 {
- color: LightSkyBlue ; 
- }
- 
- .slide h4 { 
- color: Black; 
- }
- 
- .slide h5 {
- color: Red
- }
+h3 {
+ color: Black ; 
+ } 
  
 img[alt~="center"] {
   display: block;
