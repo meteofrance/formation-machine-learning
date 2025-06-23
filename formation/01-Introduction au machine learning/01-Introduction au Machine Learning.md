@@ -203,42 +203,29 @@ $$
 
 #### ■ Rappel calcul des gradients pour la régression linéaire :
 
-<center>
 
-![image learning rate](./Images/02-intro_ML/gradient.PNG)
+![image learning rate center](./Images/02-intro_ML/gradient.PNG)
 
-</center>
 
 ####  ■ Si m est très grand et X de dimension élevée, alors calculer la somme devient très long, voire interminable...
 
 #### ■ Exemple : 1 million d’images en 1024x1024
 
 
-##### <center>PROBLEME...</center>
+##### [IL FAUT CENTER!] PROBLEME...
 
 ---
-## La descente de gradient stochastique
-
-#### ■ La solution : la descente de gradient stochastique
+## La solution : la descente de gradient stochastique
 
 #### ■ A chaque étape de descente de gradient, au lieu de prendre l’ensemble des échantillons d’un coup comme ceci :
 
-<center>
+![h:175px center](./Images/02-intro_ML/formule1.PNG)
 
-![](./Images/02-intro_ML/formule1.PNG)
+#### ■ On itère sur les échantillons un par un :
 
-</center>
-
-#### On itère sur les échantillons un par un :
-
-<center>
-  
 pour i allant de 1 à m, répéter :
+![h:175px center](./Images/02-intro_ML/formule2.PNG)
 
-<img src="./Images/02-intro_ML/formule2.PNG" height=120>
-
-
-</center>
 
 ---
   
@@ -247,7 +234,7 @@ pour i allant de 1 à m, répéter :
 
 |Full batch gradient descent (FBGD)|Stochastic gradient descent (SGD)|
 |:---:|:---:|
-![Full batch/Sochastic](./Images/02-intro_ML/Full_batch_Stochastic.PNG)
+| ![Full batch/Sochastic](./Images/02-intro_ML/full_batch_gradient_descent.PNG) | ![](./Images/02-intro_ML/stochastic_gradient_descent.PNG) |
 
 ---
 
@@ -260,39 +247,36 @@ pour i allant de 1 à m, répéter :
 ## Taille de batch (batch size)
 
 
-#### ■ Full batch gradient descent : on calcule le gradient sur l’ensemble du jeu de données
+#### ■ Full batch GD : calcul du gradient sur l’ensemble du jeu de données
 * Inconvénient : demande le chargement de toutes les données en RAM ce qui est impossible pour les grands jeux de données.
 
-#### ■ SGD : on estime le gradient échantillon par échantillon
+#### ■ Stochastic GD : on estime le gradient échantillon par échantillon
 * Inconvénient : lent et convergence plus chaotique.
 
 #### ■ Compromis : mini-batch gradient descent
 
 * On estime le gradient sur k échantillons à la fois (par exemple 32 échantillons).
 
-#### <center> En pratique, on essaie d'avoir le plus grand batch que la carte graphique peut acceuillir.</center>
+#### En pratique, on essaie d'avoir le plus grand batch que la carte graphique peut acceuillir.
 
 ---
 
 
 ## La notion d’epoch
 
-#### ■ Dans la SGD, on estime le « gradient » échantillon par échantillon, ou par mini-batches de quelques échantillons
+#### ■ Dans la SGD, on estime le « gradient » échantillon par échantillon, ou par mini-batchs de quelques échantillons
 
 * Une passe complète sur le jeu de données s’appelle : 
 
-<center>
   
- ![une_epoch](./Images/02-intro_ML/epoch.PNG)
- 
- </center>
+ ![une_epoch center](./Images/02-intro_ML/epoch.PNG)
 
 #### ■ Le nombre d’épochs est donc le nombre de passes effectuées sur le jeu d’entraînement lors de l’apprentissage.
 
 ---
 
 
-## <center>  Des questions sur la descente de gradient ? </center>
+## Des questions sur la descente de gradient ?
 
 ---
 
@@ -307,13 +291,9 @@ pour i allant de 1 à m, répéter :
 
 ― Certains paramètres spécifiques du modèle
 
-* Pour un réseau de neurones : nombre de couches, nombre de neurones par couche...
+* Pour un réseau de neurones : nb de couches, nb de neurones par couche...
 
-― Le learning rate
-
-― La taille des batchs
-
-― Le nombre d'épochs
+― Mais aussi : le learning rate, la taille des batchs, le nombre d'épochs ...
 
 #### ■ Comment choisir ces hyper-paramètres ?
 
@@ -323,46 +303,42 @@ pour i allant de 1 à m, répéter :
 ## Evaluer le modèle
 **Première idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur le jeu d’entraînement
 
-![entraînement](./Images/02-intro_ML/entrainement.PNG)
+![h:65px entraînement center](./Images/02-intro_ML/entrainement.PNG)
 
-#### Pas bon. Le modèle risque de ne pas être capable de généraliser.
+##### Pas bon. Le modèle risque de ne pas être capable de généraliser.
 
-<center>
 
-<img src="./Images/02-intro_ML/overfitting.PNG" height=300>
-
-</center>
+![h:280px overfit center](./Images/02-intro_ML/overfitting.PNG)
 
 ---
 
 ## Evaluer le modèle
 
-**Deuxième idée:** choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
+**Deuxième idée:** 
+* Choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de test
 
-![entraînement test](./Images/02-intro_ML/entrainement_test.PNG)
+![h:70px entraînement test center](./Images/02-intro_ML/entrainement_test.PNG)
 
-##### <center> Pas bon. Aucune garantie que l’algorithme fonctionnera bien sur de nouvelles données. </center> 
+#####  Pas bon. Aucune garantie que l’algorithme fonctionnera bien sur de nouvelles données. 
 
 ---
 
 ## Evaluer le modèle
 
 
-**Troisième idée:** entraîner sur le jeu d’entraînement, choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de validation, puis une fois le modèle réglé, l’évaluer sur un jeu de test.
+**Troisième idée:** 
+* Entraîner sur le jeu d’entraînement, choisir les hyper-paramètres qui fonctionnent le mieux sur un jeu de validation, puis une fois le modèle réglé, l’évaluer sur un jeu de test.
 
-![entraînement test_validation](./Images/02-intro_ML/entrainement_test_valid.PNG)
+![h:70px entraînement test_validation center](./Images/02-intro_ML/entrainement_test_valid.PNG)
 
-##### <center> C’est mieux ! </center>
+#####  C’est mieux ! 
 
 ---
 
 
 ## Sous-apprentissage - Sur-apprentissage
-<center>
 
-<img src="./Images/02-intro_ML/sur_sous_apprentissage.PNG" height=270, width=800>
-
-</center>
+![h:250px sur_sous_app center](./Images/02-intro_ML/sur_sous_apprentissage.PNG)
 
 
 |Sous-apprentissage|Bon modèle|Sur-apprentissage|
@@ -374,18 +350,13 @@ pour i allant de 1 à m, répéter :
   
 ## Sous-apprentissage - Sur-apprentissage
 
-<center>
-
-<img src="./Images/02-intro_ML/sur_sous_apprentissage2.PNG" width=850>
-
-</center>
+![h:500px biais_variance center](./Images/02-intro_ML/sur_sous_apprentissage2.PNG)
 
 ---
 
 
-## Combattre l’underfitting
+## Combattre l’underfitting ("sous-apprentissage")
 
-#### ■ Combattre l’underfitting ("sous-apprentissage")
 
 ― Complexifier le modèle
 
@@ -397,17 +368,18 @@ pour i allant de 1 à m, répéter :
 
 ---
 
-### Combattre l’overfitting
+## Combattre l’overfitting ("sur-apprentissage") 1/2
 
-##### ■ Combattre l’overfitting ("sur-apprentissage")
 ― Ajouter des données d’entraînement
 
- *  Il est préfererable d'avoir des situations météorologiques diverses (sur plusieurs années) plutot que sur une courte période (situations très corréllées)
+ *  Préférer situations météorologiques diverses (sur plusieurs années) plutot que sur courte période (situations très corréllées)
 
 ― Simplifier le modèle
 
  *  Eviter que le modèle dispose de suffisement de poids pour « apprendre par coeur » le jeu d’entraînement.
+---
 
+## Combattre l’overfitting ("sur-apprentissage") 2/2
 ― Limiter la capacité d’apprentissage du modèle
 
  * De nombreuses méthodes de régularisation permettent d'éviter le surapprentissage: *lasso, augmentation de données, early-stopping, dropout*.
@@ -422,7 +394,7 @@ pour i allant de 1 à m, répéter :
 
 ---
 
-## <center> Des questions? </center> 
+##  Des questions? 
 
 ---
 
