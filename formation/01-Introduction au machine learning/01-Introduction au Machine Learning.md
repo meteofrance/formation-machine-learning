@@ -41,6 +41,13 @@ Introduction : le Machine Learning
 
 
 ---
+Quelques définitions
+--
+![IA ML DL center](./Images/02-intro_ML/IA_ML_DL.png)
+**Machine learning** : Apprentissage automatique
+**Deep Learning** : Réseaux de neurones profonds
+
+---
 Grandes catégories d’algorithmes de machine learning 
 --
 ![h:550px center](./Images/02-intro_ML/types_apprentissages.PNG)
@@ -384,39 +391,49 @@ pour i allant de 1 à m, répéter :
 
 # Python pour le Machine Learning 
 
-<br/>
 
 
 ---
 
+## Pourquoi Python ? 
+#### Language le plus utilisé dans le domaine
+* Richesse des libraires et frameworks
+* Communauté active et ressources abondantes
 
-## Utilisation de la Librairie Pandas 
+#### En pratique
+* Simplicité et lisibilité du code
+* Intégration facile avec d'autres outils et langages
+* Performance et efficacité pour le traitement des données et la modélisation
 
-#### Importer des fichiers (Excel, CSV) avec Pandas
-
-#### Preparation d'un jeu de données
-
-*  Suppression des valeurs aberrantes / manquantes
 
 ---
 
+## Grandes étapes d'un projet de machine learning 
+#### 1. Lecture des données et statistiques descritptives
+#### 2. Prétraitement des données
+#### 3. Modélisation
+#### 4. Evaluation
+#### 5. Présentation, mise en forme des résultats, export
 
-## Présentation de Scikit-Learn
-
-### Séparer les données en jeux d'entraînement et de test
-
-### Réaliser une régression linéaire
-
-### Réaliser une classification non supervisée
-
-* Prédiction d’une classe et des probabilités pour chaque classe
-
-![sklearn](./Images/03-python_data_science/sklearn_code2.PNG) 
 
 ---
 
+## Pandas 
+#### La librairie pour la lecture et le prétraitement des données
+* Pandas est la librairie pour les données de type tableaux numériques (sorte d'excell plus avancé) et de séries temporelles
+* Utile la notion de dataframe (similaire à R pour les connaisseurs)
+* Multiples fonctions pour manipuler les données, le calcul de statistiques, la visualisation ...
 
-## Un projet Machine Learning en Python
+#### Egalement utile en fin de projet: mise en forme/interprétation finale des résultats
+---
 
-* Les grandes étapes et les librairies associées
+## La libriaire Scikit Learn
+#### La librairie pour la modélisation 
+* Algorithmes, découpage des données, ...
+
+![h:165px scikit learn 1 center](./Images/02-intro_ML/scikitlearn1.PNG)
+![h:180px scikit learn 2 center](./Images/02-intro_ML/scikitlearn2.PNG)
+
+
+
 
