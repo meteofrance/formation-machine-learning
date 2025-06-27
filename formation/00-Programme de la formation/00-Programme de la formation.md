@@ -65,7 +65,7 @@ Programme de la formation Deep Learning
 |12h00 | Pause Déjeuner|
 |13h30 | Algorithmes de machine learning - Evaluation et sélection de modèles |
 |14h15 | TP 1 - Partie 2 : Python pour data scientist |
-|15h30 | Algorithmes de machine learning - KMeans Clustering |
+|15h15 | TP 2 - Titanic |
 |16h45 | Questions / rappels|
 |17h00 | Fin de journée|
 
@@ -75,12 +75,14 @@ Programme de la formation Deep Learning
 |Jour 2 ||
 |:-:|:-:|
 |09h00 | Questions / rappel |
-|9h15 | TP Modèles Linéaires & Forêts Aléatoires: reconnaissance de chiffres manuscrits |
+|9h15 | Algorithmes de machine learning - KMeans Clustering |
+|10h | Algorithmes de machine learning - Forêts Aléatoires |
+|10h | TP Modèles Linéaires & Forêts Aléatoires: reconnaissance de chiffres manuscrits |
 |10h45 | Introduction au Deep Learning |
 |12h15 | Pause Déjeuner |
 |13h15 | Rappels |
 |13h30 | La librairie Keras |
-|15h15 | TP réseaux convolutionnels : Reconnaissance de chiffres manuscrits |
+|15h15 | TP réseaux de neurones : Reconnaissance de chiffres manuscrits par réseaux linéaires |
 |16h15 | Questions / rappels |
 |17h00 | Fin de journée |
 
@@ -91,14 +93,13 @@ Programme de la formation Deep Learning
 |Jour 3 ||
 |:-:|:-:|
 |09h00 | Questions / rappel |
-|9h15 | TP : reconnaissance de chiffres manuscrits (modèles linéaires, random forest...) |
+|9h15 | TP réseaux de neurones : Reconnaissance de chiffres manuscrits par réseaux convolutionnels |
 |10h30 | Pause |
-|10h45 | Introduction au deep learning |
 |12h15 | Déjeuner |
 |13h15 | Rappels |
-|13h30 |  La librairie Keras |
+|13h30 | Architectures de réseaux convolutionnels |
 |15h00 | Pause |
-|15h15 |TP réseaux convolutionnels : Reconnaissance de chiffres manuscrits avec Keras | |
+|15h15 | Applications à la météorologie, L'IA à Méteo France | |
 |16h15 | Conclusion / questions / évaluation |
 |17h00 | Fin de la formation |
 
