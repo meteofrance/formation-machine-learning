@@ -7,3 +7,4 @@ SQLAlchemy==1.4.54
 torch==2.4.1
 torchinfo==1.8.0
 torchvision==0.19.1+cu118
+torchmetrics==1.7.3
