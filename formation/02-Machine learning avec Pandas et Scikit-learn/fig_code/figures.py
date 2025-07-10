@@ -117,7 +117,7 @@ def plot_tree_interactive(X, y, depth):
 
 
 def plot_kmeans_interactive(min_clusters=1, max_clusters=6, frame_step=1):
-    from ipywidgets import interact
+    #from ipywidgets import interact
     from sklearn.metrics.pairwise import euclidean_distances
     from sklearn.datasets import make_blobs
 
