@@ -99,6 +99,11 @@ Lancez le serveur Juypter Notebook:
 runai notebook
 ```
 
+## Exporter des slides en pdf avec Marp
+
+Pour exporter des slides avec marp, il est nécessaire d'installer l'extension "Marp for VS Code" dans votre VS Code, puis de définir dans les paramètres de Marp (`@ext:marp-team.marp-vscode`) les paramètres suivants: `markdown.marp.browser` et `markdown.marp.browserPath`.
+Exemple: si vous souhaitez utiliser le navigateur Firefox de votre poste local vous aurez: `markdown.marp.browser: firefox` et `markdown.marp.browserPath: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Firefox`.
+
 
 ## Comment contribuer ?
 
