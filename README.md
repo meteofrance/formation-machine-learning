@@ -47,9 +47,10 @@ https://yhatt.github.io/marp/
 
 ### 1. Téléchargement du repo git de la formation
 
-Clonez ce répertoire git:
+Clonez ce répertoire git à la racine de votre home:
 
 ```bash
+cd
 git clone https://github.com/meteofrance/formation-machine-learning.git
 ```
 
@@ -82,9 +83,37 @@ micromamba install -f requirements.txt
 ```
 
 #### Docker à Météo-France
-Après avoir cloné le *monorepo* du LabIA, il vous faut construire le conteneur de la formation. Pour cela, il faut vous placer à la racine du repo de la formation et lancer la commande suivante:
+Se connecter à priam. Dans un terminal, taper la commande suivant 
+```bash
+ssh user_XXX@priam-sidev.meteo.fr
+```
+>  **Prérequis** : Disposer de l'outil *runai*
+>
+>Pour vérifier si *runai* est installer, taper la commande suivante qui affiche vos ports *SSH*:
+> ```bash
+> runai listuserports
+>```
+>
+> Si *runai* n'est pas installé, commencez par cloner le repertoire git de *runai* du LabIA:
+> ```bash
+> cd
+> git clone https://git.meteo.fr/dsm-labia/libs/runai.git
+> ```
+>
+> Ajouter la ligne suivante à votre *.bashrc*, cela permet d'ajouter *runai* à votre environnement d'execution (i.e. d'utiliser directement *runai* en ligne de commande):
+> ```bash
+> export PATH=$PATH:$HOME/runai
+>```
+>
+>Activer la modification dans votre *.bashrc* en utilisant la commande suivante:
+>```bash
+>source ~/.bashrc
+>```
+
+Il vous faut maintenant construire le conteneur de la formation. Pour cela, il faut vous placer à la racine du repo de la formation et lancer la commande suivante:
 
 ```bash
+cd ~/formation-machine-learning
 runai build
 ```
 
@@ -96,8 +125,23 @@ runai build
 
 Lancez le serveur Juypter Notebook:
 ```bash
-runai notebook
+cd ~/formation-machine-learning
+runai notebook formation/
 ```
+
+> Utilisation avancée de Jupyter Notebook sur un noeud de calcul GPU depuis priam (uniquement pour la fin de la formation):
+> ```bash
+> runai gpu_play 1 # reserver un GPU sur noeud
+> runai build # s'assurer que l'image docker est à jour !
+> runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation 
+> ```
+>
+> Il faut maintenant créer un tunnel ssh entre priam et le noeud de calcul. Dans un nouveau terminal sur priam :
+> ```bash
+> runai gpu_play 1 # reserver un GPU sur noeud
+> runai build # s'assurer que l'image docker est à jour !
+> runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation 
+> ```
 
 ## Exporter des slides en pdf avec Marp
 
