@@ -147,17 +147,11 @@ runai notebook formation/
 
 > Utilisation avancée de Jupyter Notebook sur un noeud de calcul GPU depuis priam (uniquement pour la fin de la formation):
 > ```bash
-> runai gpu_play 1 # reserver un GPU sur noeud
-> runai build # s'assurer que l'image docker est à jour !
-> runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation 
+> runai interactive # reserver un GPU sur noeud et s'y connecter
+> runai build # s'assurer que l'image docker est à jour sur le noeud !
+> runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation sur le noue GPU
 > ```
->
-> Il faut maintenant créer un tunnel ssh entre priam et le noeud de calcul. Dans un nouveau terminal sur priam :
-> ```bash
-> runai gpu_play 1 # reserver un GPU sur noeud
-> runai build # s'assurer que l'image docker est à jour !
-> runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation 
-> ```
+
 
 ## Exporter des slides en pdf avec Marp
 
