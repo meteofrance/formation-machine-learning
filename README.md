@@ -89,7 +89,23 @@ ssh user_XXX@priam-sidev.meteo.fr
 ```
 >  **Prérequis** : Disposer de l'outil *runai*
 >
->Pour vérifier si *runai* est installer, taper la commande suivante qui affiche vos ports *SSH*:
+>>À Meteo France uniquement, lors de la formation interne, runai est disponible via les commandes suivantes:
+>> 1. ouvrir le fichier .bashrc avec vi
+>> ```bash
+>> vi .bashrc
+>> ```
+>> 2. Ajouter les lignes suivantes au fichier (`i` pour editer puis `:wq` pour fermer et sauvegarder) 
+>> ```bash
+>> export PATH=$PATH:/scratch/shared/monorepo4ai/tools/runai
+>> export RUNAI_SLURM_PARTITION=nodes123
+>> ```
+>> 3. Une fois le fichier fermé, pour prendre en compte la modification : 
+>> ```bash
+>> 
+>> source .bashrc
+>> ```
+>
+>Pour vérifier si *runai* est installé, taper la commande suivante qui affiche vos ports *SSH*:
 > ```bash
 > runai listuserports
 >```
