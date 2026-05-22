@@ -144,6 +144,11 @@ Lancez le serveur Juypter Notebook:
 cd ~/formation-machine-learning
 runai notebook formation/
 ```
+Pour ouvrir, votre notebook, identifiez votre port ssh dans le terminal:
+ ```bash
+runai listuserports  
+```
+Votre notebook sera accessible sur firefox à l'adresse suivante  http://priam-sidev.meteo.fr:YOUR_RUNAI_NOTEBOOK_PORT/tree?token=what_a_super_token 
 
 > Utilisation avancée de Jupyter Notebook sur un noeud de calcul GPU depuis priam (uniquement pour la fin de la formation):
 > ```bash
@@ -151,6 +156,16 @@ runai notebook formation/
 > runai build # s'assurer que l'image docker est à jour sur le noeud !
 > runai notebook_gpu formations/ # lancer jupyter dans le dossier de la formation sur le noue GPU
 > ```
+>
+> **Avant d'ouvrir votre notebook sur firfox comme précédemment, créez un tunnel ssh entre priam et le node00X :**
+>
+>Identifiez le numéro du noeud GPU que l'on vous a attribué (ex: node001) 
+>
+>Ouvrez un autre terminal sur priam et executez la commande suivante:
+> ```bash
+> ssh -g -L YOUR_RUNAI_NOTEBOOK_PORT:0.0.0.0:YOUR_RUNAI_NOTEBOOK_PORT node00X
+> ```
+> Vous pouvez maintentant ouvrir votre notebbok comme précemment.
 
 
 ## Exporter des slides en pdf avec Marp
