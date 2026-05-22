@@ -165,7 +165,7 @@ Votre notebook sera accessible sur firefox à l'adresse suivante  http://priam-s
 > ```bash
 > ssh -g -L YOUR_RUNAI_NOTEBOOK_PORT:0.0.0.0:YOUR_RUNAI_NOTEBOOK_PORT node00X
 > ```
-> Vous pouvez maintentant ouvrir votre notebbok comme précemment.
+> Vous pouvez maintentant ouvrir votre notebook comme précemment.
 
 
 ## Exporter des slides en pdf avec Marp
