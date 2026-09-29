@@ -96,7 +96,7 @@ ssh user_XXX@priam-sidev.meteo.fr
 >> ```
 >> 2. Ajouter les lignes suivantes au fichier (`i` pour editer puis `:wq` pour fermer et sauvegarder) 
 >> ```bash
->> export PATH=$PATH:/scratch/shared/monorepo4ai/tools/runai
+>> export PATH=/scratch/shared/monorepo4ai/tools/runai:$PATH
 >> export RUNAI_SLURM_PARTITION=nodes123
 >> ```
 >> 3. Une fois le fichier fermé, pour prendre en compte la modification : 
