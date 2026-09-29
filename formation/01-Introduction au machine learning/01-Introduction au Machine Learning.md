@@ -199,7 +199,7 @@ $$
 #### ■ Exemple : 1 million d’images en 1024x1024
 
 
-##### [IL FAUT CENTER!] PROBLEME...
+##### PROBLEME !!!
 
 ---
 ## La solution : la descente de gradient stochastique
@@ -371,7 +371,7 @@ pour i allant de 1 à m, répéter :
 
  * De nombreuses méthodes de régularisation permettent d'éviter le surapprentissage: *lasso, augmentation de données, early-stopping, dropout*.
 
-― Entraîner le modèle moins longtemps ()
+― Entraîner le modèle moins longtemps (*early-stopping*)
 
  *  Réduire le nombre d'épochs pour un réseau de neurones puisque le processus d'apprentissage est itératif
 
